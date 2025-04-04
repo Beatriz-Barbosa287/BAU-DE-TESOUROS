@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #6EC6F0;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #6EC6F0;
+    padding: 20px;
+    
+
+}
+
+.logo {
+    width: 100%;
+    max-width: 1800px;
+    
+}
+
+.buttons {
+    margin-top: 0px;
+    background-color: #90d9fd70;
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.btn {
+    width: 80%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cadastrar {
+    background-color: #fefeff;
+    color: white;
+}
+
+.entrar {
+    background-color: #ccddee;
+    color: white;
+}
