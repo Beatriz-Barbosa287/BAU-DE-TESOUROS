@@ -1,186 +1,132 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baú de Tesouros</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            background-color: #ffffff;
-            font-family: Arial, sans-serif;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        li {
-            margin-top: 8px;
-            font-size: 22px;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #FDB31F;
-        }
-
-        .top-bar input {
-            flex-grow: 1;
-            margin: 0 10px;
-            padding: 8px;
-            border-radius: 20px;
-            border: none;
-            color: black;
-        }
-
-        .search-box {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .search-box input {
-            width: 60%;
-            /* Define o tamanho da barra de busca */
-            max-width: 400px;
-            /* Limita o tamanho máximo */
-            padding: 8px 15px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            outline: none;
-            font-size: 16px;
-        }
-
-        .user-icon {
-            margin-left: 15px;
-        }
-
-        .sidebar {
-            width: 200px;
-            background-color: #F4D375;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100%;
-            padding-top: 20px;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            padding: 15px;
-            text-align: center;
-        }
-
-        .sidebar ul li a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-
-        main {
-            margin-left: 220px;
-            padding: 20px;
-        }
-
-        .banner {
-            text-align: center;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .category img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-        }
-        .textuser{
-            background-color: #fffecbcc;
-            border-radius: 8px;
-            padding: 12px;
-            width: auto;
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <div class="top-bar">
-            <div class="menu-icon">&#9776;</div>
-            <div class="search-box">
-                <input type="text" placeholder="Buscar...">
-            </div>
-            <div class="user-icon">&#128100;</div>
-        </div>
-    </header>
 
-    <aside class="sidebar">
-        <br><br>
+    <!-- Ícone de sacola no canto superior direito -->
+    
+
+    <!-- Navbar lateral esquerda -->
+    <div class="navbar-lateral">
         <ul>
-            <li><a href="#">&#127968; Início</a></li><br>
-            <li><a href="#">&#8644; Troca</a></li><br>
-            <li><a href="#">&#128178; Venda</a></li><br>
-            <li><a href="#">&#10084; Doação</a></li><br>
-            <li><a href="#">&#9993; Contato</a></li><br>
-            <li><a href="#">&#128100; Perfil</a></li>
+            <li><a href="#"><span class="emoji">🏠</span> INICIO</a></li>
+            <li><a href="#"><span class="emoji">🐷</span> VENDA</a></li>
+            <li><a href="#"><span class="emoji">❤️‍🔥</span> DOACAO</a></li>
+            <li><a href="#"><span class="emoji">📧</span> CONTATO</a></li>
+            <li><a href="#"><span class="emoji">👤</span> PERFIL</a></li>
         </ul>
-    </aside>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <header>
 
-    <main>
-        <section class="banner">
-            <img src="/img/banner ok.png" alt="" width="100%">
-        </section>
-        <h2>Usuários de Destaque</h2>
-        <section class="categories">
+                <div class="search">
+                
+                    <a href="sacola.html" class="icone-sacola" title="Ir para sacola">
+                        🛍️
+                    </a>
+                    <input type="text" placeholder="Buscar...">
+                    <img src="https://img.icons8.com/ios-filled/24/search--v1.png" />
+                </div>
+            </header>
+            <div class="banner-container">
+                <div class="banner-image">
+                    <img src="img/banner ok.png" alt="Imagem de baú com brinquedos" width="100%" />
+                </div>
+            </div>
+         <br>
+         <br>
 
-            <div class="category"><img src="/fotosdeperfil/1.png" alt="Usuário" width="20%">
-                <div class="textuser"><h5><b>Eco Kids: </b><br> <br>
-                    @EcoKids <br>
-                    ecokidsmarketplace.com.br</h5></div>
-            </div>
-            <div class="category"><img src="/fotosdeperfil/6.png" alt="Usuário" width="20%">
-                <div class="textuser"><h5><b>Crescer e Compartilhar: </b><br> <br>
-                    @CrescerCompartilhar <br></h5></div>
-            </div>
+            <main>
 
-            <div class="category"><img src="/fotosdeperfil/3.png" alt="Loja" width="20%">
-                <div class="textuser"><h5><b>Pequenos Tesouros:</b> <br> <br>
-                    @PequenosTesouros <br>
-                    pequenostesourosbrecho.com.br</h5></div>
-            </div>
-            <div class="category"><img src="/fotosdeperfil/2.png" alt="Espaço Kids" width="20%">
-                <div class="textuser"><h5><b>Troca Troca Kids:</b> <br> <br>
-                    trocatrocakids.com.br
-                    <br>CNPJ: 45.678.901/0001-60 <br>
-                    Telefone: (51) 99999-9999 <br>
-                </h5></div>
-            </div>
-            <div class="category"><img src="/fotosdeperfil/4.png" alt="Evento" width="20%">
-                <div class="textuser"><h5><b>Papais Modernos:  </b> <br> <br>
-                    @PapaisModernos <br></h5></div>
-            </div>
-            <div class="category"><img src="/fotosdeperfil/5.png" alt="Evento" width="20%">
-                <div class="textuser"><h5><b>Mamãe Criativa: </b> <br> <br>
-                    @MamaeCriativa <br></h5></div>
-            </div>
-        </section>
-    </main>
+
+                <div class="users">
+                    <h2>Usuários em Destaque</h2>
+                    <div class="user">
+                        <img src="/fotosdeperfil/1.png" alt="Usuário 1">
+                        <p><b>Eco Kids </b><br> ecokidsmarketplace.com.br </p>
+                    </div>
+                    <div class="user">
+                        <img src="/fotosdeperfil/2.png" alt="Usuário 2">
+                        <p><b>Pequenos Tesouros</b> <br> pequenostesourosbrecho.com.br</p>
+                    </div>
+                    
+                    <div class="user">
+                        <img src="/fotosdeperfil/6.png" alt="Usuário 2">
+                        <p><b>Crescer e Compartilhar</b> <br> crescercompartilhar.com.br</p>
+                    </div>
+                    <div class="user">
+                        <img src="/fotosdeperfil/5.png" alt="Usuário 2">
+                        <p><b>Mamãe Criativa</b> <br> @MamãeCriativa</p>
+                    </div>
+                    <div class="user">
+                        <img src="/fotosdeperfil/4.png" alt="Usuário 2">
+                        <p><b>Papais Modernos</b> <br> @papaismodernos</p>
+                    </div>
+                    <div class="user">
+                        <img src="/fotosdeperfil/3.png" alt="Usuário 2">
+                        <p><b>HappyChildren</b> <br> happychildren.com.br</p>
+                    </div>
+                    <!-- Adicione mais usuários conforme necessário -->
+                </div>
+
+                <div class="items">
+                    <h2>Itens Cadastrados Recentemente</h2>
+                    <div class="item-grid">
+                        <div class="item">
+                            <img src="/img/ITENS/eletronico computador.jpg" alt="Item 1">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <div class="item">
+                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                            <button>Saiba Mais</button>
+                        </div>
+                        <!-- Adicione mais cards -->
+                    </div>
+                </div>
+        </div>
+        </main>
+    </div>
 </body>
 
 </html>
