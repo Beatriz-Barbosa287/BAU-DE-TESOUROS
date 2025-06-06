@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baú de Tesouros</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <div class="navbar-lateral">
+        <ul>
+            <li><a href="home.html"><span class="emoji">🏠</span><b> INICIO</b></a></li>
+            <li><a href="paginadevendas.html"><span class="emoji">🐷</span><b> VENDA</b></a></li>
+            <li><a href="paginadedoacao.html"><span class="emoji">❤️‍🔥</span><b> DOACAO</b></a></li>
+            <li><a href="contato.html"><span class="emoji">📧</span><b> CONTATO</b></a></li>
+            <li><a href="perfiluser.html"><span class="emoji">👤</span><b> PERFIL</b></a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <header>
+
+                <div class="search">
+
+                    <a href="sacola.html" class="icone-sacola" title="Ir para sacola">
+                        🛍️
+                    </a>
+                    <input type="text" id="pesquisa" placeholder="Digite uma categoria: brinquedos, roupas, bonecas...">
+                    <img id="icone-busca" src="https://img.icons8.com/ios-filled/24/search--v1.png" alt="Buscar"
+                        style="cursor: pointer;">
+
+                </div>
+            </header>
+
+            <div class="item-container">
+                <h1 class="item-titulo">Adicionar Novo Item</h1>
+                <form class="item-formulario">
+                    <div class="item-foto"><br><br>
+                        <input type="file" id="foto" name="foto" accept="image/*" class="item-input">
+                    </div>
+                    <label class="item-label" for="nome">Nome do Item</label>
+                    <input type="text" id="nome" name="nome" class="item-input">
+
+
+
+                    <label class="item-label" for="valor">Valor</label>
+                    <input type="text" id="valor" name="valor" class="item-input">
+
+
+                    <label class="item-label" for="telefone">Telefone para contato</label>
+                    <input type="tel" id="telefone" name="telefone" class="item-input">
+
+                    <div class="item-linha">
+                        <div>
+                            <label class="item-label" for="cidade">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" class="item-input">
+                        </div>
+                        <div>
+                            <label class="item-label" for="uf">UF</label>
+                            <input type="text" id="uf" name="uf" class="item-input uf">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="item-botao">Adicionar Item</button>
+                </form>
+            </div>
+
+            </main>
+        </div>
+        <script>
+            document.querySelector('.item-formulario').addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const form = event.target;
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/itensdoacao', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        alert('Item de venda adicionado com sucesso!');
+                        form.reset();
+                    } else {
+                        alert('Erro ao adicionar item de venda. Tente novamente.');
+                    }
+                } catch (error) {
+                    alert('Erro de conexão com o servidor.');
+                }
+            });
+        </script>
+        <script src="script.js"></script>
+</body>
+
+</html>

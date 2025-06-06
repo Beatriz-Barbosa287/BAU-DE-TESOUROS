@@ -40,36 +40,29 @@ async function handleCadastro(event) {
     const confirmarSenha = document.getElementById('confirmar-senha').value;
 
     if (senha !== confirmarSenha) {
-      alert('As senhas não conferem!');
-      return;
+        alert('As senhas não coincidem!');
+        return;
     }
-
-    const data = {
-      tipo_usuario,
-      nome,
-      email,
-      cpf_cnpj,
-      senha
-    };
 
     try {
-      const response = await fetch('/api/cadastro', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+        const resposta = await fetch('http://localhost:3000/api/cadastrar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ tipo_usuario, nome, email, cpf_cnpj, senha })
+        });
 
-      const result = await response.json();
+        const dados = await resposta.json();
 
-      if (response.ok) {
-        alert('Cadastro realizado com sucesso!');
-        // aqui pode colocar redirecionamento, por exemplo:
-        // window.location.href = '/login.html';
-      } else {
-        alert('Erro: ' + result.message);
-      }
-    } catch (error) {
-      alert('Erro ao conectar com o servidor.');
-      console.error(error);
+        if (resposta.ok) {
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = 'login.html';
+        } else {
+            alert(`Erro: ${dados.message}`);
+        }
+    } catch (erro) {
+        console.error('Erro ao cadastrar:', erro);
+        alert('Erro ao conectar com o servidor.');
     }
-  }
+}
