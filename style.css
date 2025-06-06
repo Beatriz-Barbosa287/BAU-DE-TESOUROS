@@ -54,7 +54,7 @@ body {
     box-sizing: border-box;
 }
 
-.container {
+.container-header {
     flex: 1;
     background-color: #ffffff;
     padding: 20px;
@@ -97,9 +97,17 @@ header h1 {
     padding: 8px;
     border-radius: 8px;
     border: none;
-    width: 200px;
+    width: 400px;
 }
+.cat {
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+    }
 
+    .cat.hidden {
+      display: none;
+    }
 main {
     display: flex;
     margin-top: 20px;
@@ -156,6 +164,25 @@ main {
 }
 
 .items h2 {
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.itens-vendasedoacao{
+    margin-left: 150px;
+    margin-right: 160px;
+    padding: 10px 12px;
+    flex: 1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.281);
+    transition: transform 0.2s ease;
+    border: #000 solid 1px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+    border-color: #000;
+    border-radius: 10px;
+    background-color: #fce9af;
+}
+
+.itens-vendasedoacao h2 {
     align-items: center;
     margin-bottom: 15px;
 }
@@ -268,4 +295,155 @@ main {
     font-size: 24px;
     display: block;
     margin-bottom: 5px;
+}
+
+
+  .perfil-edicao {
+      background-color: #fcae2d;
+      border-radius: 25px;
+      padding: 30px 20px;
+      max-width: 350px;
+      color: black;
+    }
+
+    .perfil-edicao p {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .perfil-edicao label {
+      display: block;
+      margin: 12px 0 4px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .perfil-edicao input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      background-color: #fde6a8;
+      font-size: 14px;
+    }
+
+    .botoes {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .botoes button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .botoes .salvar {
+      background-color: green;
+    }
+
+    .botoes .cancelar {
+      background-color: red;
+    }
+
+    .perfil-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 400px;
+    }
+
+    .perfil-info .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 80px;
+      margin-bottom: 15px;
+    }
+
+    .dados-usuario {
+      background-color: #f1f1f1;
+      border-radius: 10px;
+      padding: 12px 20px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .dados-usuario strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .produtos-cadastrados {
+      text-align: center;
+      width: 100%;
+    }
+
+    .produto-card {
+      display: inline-block;
+      width: 160px;
+      background-color: #fdf1cf;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 15px;
+      padding-bottom: 8px;
+    }
+
+    .produto-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .produto-info {
+      padding: 8px;
+    }
+
+    .produto-info strong {
+      display: block;
+      font-size: 13px;
+      color: black;
+      margin-bottom: 4px;
+    }
+
+    .produto-data {
+      font-size: 12px;
+      color: #333;
+    }
+.adicionar-item button {
+    background-color: #ff1e1e;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.adicionar-item button a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.adicionar-item button:hover {
+    background-color: #d61a1a;
 }

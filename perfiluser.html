@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baú de Tesouros</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            gap: 50px;
+            margin-left: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <!-- Navbar lateral esquerda -->
+    <div class="navbar-lateral">
+        <ul>
+            <li><a href="home.html"><span class="emoji">🏠</span><b> INICIO</b></a></li>
+            <li><a href="paginadevendas.html"><span class="emoji">🐷</span><b> VENDA</b></a></li>
+            <li><a href="paginadedoacao.html"><span class="emoji">❤️‍🔥</span><b> DOACAO</b></a></li>
+            <li><a href="contato.html"><span class="emoji">📧</span><b> CONTATO</b></a></li>
+            <li><a href="perfil.html"><span class="emoji">👤</span><b> PERFIL</b></a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="container-header">
+            <header>
+
+                <div class="search">
+
+                    <a href="sacola.html" class="icone-sacola" title="Ir para sacola">
+                        🛍️
+                    </a>
+                    <input type="text" id="pesquisa" placeholder="Digite uma categoria: brinquedos, roupas, bonecas...">
+                    <img id="icone-busca" src="https://img.icons8.com/ios-filled/24/search--v1.png" alt="Buscar"
+                        style="cursor: pointer;">
+                </div>
+            </header>
+            <h2 style="text-align:center; margin-top: 30px;">Página de Perfil do Usuário</h2>
+            <br>
+            <br>
+            <main>
+
+
+
+
+
+                <div class="container">
+
+                    <!-- Formulário de Edição -->
+                    <div class="perfil-edicao">
+                        <p>Olá! Você pode editar as informações do seu perfil na Baú de Tesouros. Por favor, preencha os
+                            campos abaixo com as informações que você deseja atualizar.</p>
+
+                        <label>Nome de Usuário:</label>
+                        <input type="text">
+
+                        <label>Seu Nome Completo:</label>
+                        <input type="text">
+
+                        <label>Seu E-mail:</label>
+                        <input type="email">
+
+                        <label>Sua Localização (Cidade, Estado):</label>
+                        <input type="text">
+
+                        <div class="botoes">
+                            <button class="salvar">Salvar</button>
+                            <button class="cancelar">Cancelar</button>
+                        </div>
+                    </div>
+
+                    <!-- Lado direito: avatar, dados e produtos -->
+                    <div class="perfil-info">
+
+                        <!-- Avatar e dados do usuário -->
+                        <div class="avatar">
+                            <i class="fa fa-user"></i> <!-- Ou uma imagem real se quiser -->
+                        </div>
+                        <div class="dados-usuario">
+                            <strong>@Mamãe Criativa</strong>
+                            <div>Gislaine Pereira Araújo</div>
+                            <div>gis.laine.aru@gmail.com</div>
+                        </div>
+
+                        <!-- Produtos -->
+                        <div class="produtos-cadastrados">
+                            <p><strong>Produtos Cadastrados</strong></p>
+
+                            <div class="produto-card">
+                                <img src="https://images.unsplash.com/photo-1592878849121-df7a77e4874d?fit=crop&w=400&h=300"
+                                    alt="Brinquedo">
+                                <div class="produto-info">
+                                    <strong>NÃO VENDIDO</strong>
+                                    <p class="produto-data">cadastrado em 12/03/25</p>
+                                </div>
+                            </div>
+
+                            <!-- Botão de adicionar novo item -->
+                            <div class="adicionar-item">
+                               <button><a href="novoitem.html"><strong>+</strong><span>ADICIONAR NOVO ITEM</span>
+                                </a></button> 
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+</body>
+
+</html>

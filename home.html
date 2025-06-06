@@ -6,22 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baú de Tesouros</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
+        li {
+            padding: 5px 0;
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- Ícone de sacola no canto superior direito -->
-    
+
 
     <!-- Navbar lateral esquerda -->
     <div class="navbar-lateral">
         <ul>
-            <li><a href="#"><span class="emoji">🏠</span><b> INICIO</b></a></li>
-            <li><a href="#"><span class="emoji">🐷</span><b> VENDA</b></a></li>
-            <li><a href="#"><span class="emoji">❤️‍🔥</span><b> DOACAO</b></a></li>
-            <li><a href="#"><span class="emoji">📧</span><b> CONTATO</b></a></li>
-            <li><a href="#"><span class="emoji">👤</span><b> PERFIL</b></a></li>
+            <li><a href="home.html"><span class="emoji">🏠</span><b> INICIO</b></a></li>
+            <li><a href="paginadevendas.html"><span class="emoji">🐷</span><b> VENDA</b></a></li>
+            <li><a href="paginasdedoacao.html"><span class="emoji">❤️‍🔥</span><b> DOACAO</b></a></li>
+            <li><a href="contato.html"><span class="emoji">📧</span><b> CONTATO</b></a></li>
+            <li><a href="perfiluser.html"><span class="emoji">👤</span><b> PERFIL</b></a></li>
         </ul>
     </div>
     <div class="main-content">
@@ -29,21 +38,23 @@
             <header>
 
                 <div class="search">
-                
+
                     <a href="sacola.html" class="icone-sacola" title="Ir para sacola">
                         🛍️
                     </a>
-                    <input type="text" placeholder="Buscar...">
-                    <img src="https://img.icons8.com/ios-filled/24/search--v1.png" />
+                    <input type="text" id="pesquisa" placeholder="Digite uma categoria: brinquedos, roupas, bonecas...">
+                    <img id="icone-busca" src="https://img.icons8.com/ios-filled/24/search--v1.png" alt="Buscar"
+                        style="cursor: pointer;">
+
                 </div>
             </header>
             <div class="banner-container">
                 <div class="banner-image">
-                    <img src="img/banner ok.png" alt="Imagem de baú com brinquedos" width="100%" />
+                    <img src="img/1.png" alt="Imagem de baú com brinquedos" width="120%" />
                 </div>
             </div>
-         <br>
-         <br>
+            <br>
+            <br>
 
             <main>
 
@@ -58,7 +69,7 @@
                         <img src="/fotosdeperfil/2.png" alt="Usuário 2">
                         <p><b>Pequenos Tesouros</b> <br> pequenostesourosbrecho.com.br</p>
                     </div>
-                    
+
                     <div class="user">
                         <img src="/fotosdeperfil/6.png" alt="Usuário 2">
                         <p><b>Crescer e Compartilhar</b> <br> crescercompartilhar.com.br</p>
@@ -127,6 +138,7 @@
         </div>
         </main>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
