@@ -42,11 +42,12 @@ app.post('/api/cadastrar', async (req, res) => {
   }
 
   try {
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await mysql.createConnection(dbConfig).promise();
 
     // Verifica se o e-mail já está cadastrado
     const [rows] = await connection.execute('SELECT id FROM usuarios WHERE email = ?', [email]);
     if (rows.length > 0) {
+      await connection.end();
       return res.status(409).json({ message: 'Email já cadastrado.' });
     }
 
@@ -90,7 +91,7 @@ app.post('/api/itensvenda', upload.single('foto'), async (req, res) => {
   const foto = req.file ? req.file.filename : null;
 
   try {
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await mysql.createConnection(dbConfig).promise();
     const sql = 'INSERT INTO itensvenda (nome, valor, telefone, cidade, uf, foto) VALUES (?, ?, ?, ?, ?, ?)';
     await connection.execute(sql, [nome, valor, telefone, cidade, uf, foto]);
     await connection.end();
@@ -98,6 +99,19 @@ app.post('/api/itensvenda', upload.single('foto'), async (req, res) => {
   } catch (err) {
     console.error('Erro ao inserir item de venda:', err);
     res.status(500).json({ error: 'Erro ao adicionar item de venda' });
+  }
+});
+
+// Rota para buscar itens de venda
+app.get('/api/itensvenda', async (req, res) => {
+  try {
+    const connection = await mysql.createConnection(dbConfig).promise();
+    const [rows] = await connection.execute('SELECT * FROM itensvenda ORDER BY id DESC');
+    await connection.end();
+    res.json(rows);
+  } catch (err) {
+    console.error('Erro ao buscar itens de venda:', err);
+    res.status(500).json({ error: 'Erro ao buscar itens de venda' });
   }
 });
 
@@ -111,14 +125,14 @@ app.post('/login', async (req, res) => {
   const { email, senha } = req.body;
 
   try {
-    const connection = await mysql.createConnection(dbConfig);
+    const connection = await mysql.createConnection(dbConfig).promise();
 
     const [rows] = await connection.execute(
-      'SELECT * FROM usuarios WHERE email = ? AND senha = ?',
-      [email, senha]
+      'SELECT * FROM usuarios WHERE email = ?',
+      [email]
     );
 
-    if (rows.length > 0) {
+    if (rows.length > 0 && await bcrypt.compare(senha, rows[0].senha)) {
       res.json({ success: true });
     } else {
       res.json({ success: false });
@@ -128,6 +142,20 @@ app.post('/login', async (req, res) => {
   } catch (error) {
     console.error('Erro no login:', error);
     res.status(500).json({ success: false, message: 'Erro interno no servidor' });
+  }
+});
+
+app.put('/api/usuario', async (req, res) => {
+  const { nome_usuario, nome_completo, email, localizacao } = req.body;
+  try {
+    const connection = await mysql.createConnection(dbConfig).promise();
+    const sql = 'UPDATE usuarios SET usuario=?, nome=?, localizacao=? WHERE email=?';
+    await connection.execute(sql, [nome_usuario, nome_completo, localizacao, email]);
+    await connection.end();
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Erro ao atualizar usuário:', err);
+    res.status(500).json({ success: false, error: 'Erro ao atualizar usuário' });
   }
 });
 

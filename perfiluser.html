@@ -7,7 +7,6 @@
     <title>Baú de Tesouros</title>
     <link rel="stylesheet" href="style.css">
     <style>
-
         .container {
             display: flex;
             justify-content: center;
@@ -64,16 +63,16 @@
                             campos abaixo com as informações que você deseja atualizar.</p>
 
                         <label>Nome de Usuário:</label>
-                        <input type="text">
+                        <input type="text" id="nome_usuario">
 
                         <label>Seu Nome Completo:</label>
-                        <input type="text">
+                        <input type="text" id="nome_completo">
 
                         <label>Seu E-mail:</label>
-                        <input type="email">
+                        <input type="email" id="email">
 
                         <label>Sua Localização (Cidade, Estado):</label>
-                        <input type="text">
+                        <input type="text" id="localizacao">
 
                         <div class="botoes">
                             <button class="salvar">Salvar</button>
@@ -81,10 +80,10 @@
                         </div>
                     </div>
 
-                    <!-- Lado direito: avatar, dados e produtos -->
+
                     <div class="perfil-info">
 
-                        <!-- Avatar e dados do usuário -->
+
                         <div class="avatar">
                             <i class="fa fa-user"></i> <!-- Ou uma imagem real se quiser -->
                         </div>
@@ -94,26 +93,77 @@
                             <div>gis.laine.aru@gmail.com</div>
                         </div>
 
-                        <!-- Produtos -->
+
                         <div class="produtos-cadastrados">
                             <p><strong>Produtos Cadastrados</strong></p>
 
                             <div class="produto-card">
-                                <img src="/img/ITENS/eletronico computador.jpg"
-                                    alt="Brinquedo">
+                                <img src="/img/ITENS/eletronico computador.jpg" alt="Brinquedo">
                                 <div class="produto-info">
                                     <strong>NÃO VENDIDO</strong>
                                     <p class="produto-data">cadastrado em 12/03/25</p>
                                 </div>
                             </div>
-
-                            
+                            <div id="meus-itens"></div>
 
                         </div>
                     </div>
-
                 </div>
 
+        </div>
+
+
+
 </body>
+<script>
+    async function carregarMeusItens() {
+        const resp = await fetch('http://localhost:3000/api/itensvenda');
+        const itens = await resp.json();
+        const lista = document.getElementById('meus-itens');
+        lista.innerHTML = '<div class="produtos-cadastrados"><p><strong>Produtos Cadastrados</strong></p></div>';
+        itens.forEach(item => {
+            lista.innerHTML += `
+      <div class="produto-card">
+        <img src="http://localhost:3000/uploads/${item.foto}" alt="${item.nome}" width="120">
+        <div class="produto-info">
+          <strong>${item.nome}</strong><br>
+          Valor: R$ ${item.valor}<br>
+          Telefone: ${item.telefone}<br>
+          Cidade: ${item.cidade} - ${item.uf}<br>
+          <p class="produto-data">Cadastrado em: ${item.data_cadastro ? new Date(item.data_cadastro).toLocaleDateString('pt-BR') : ''}</p>
+        </div>
+      </div>
+    `;
+        });
+    }
+    carregarMeusItens();
+</script>
+<script>
+document.querySelector('.salvar').onclick = async function () {
+    const nome_usuario = document.getElementById('nome_usuario').value;
+    const nome_completo = document.getElementById('nome_completo').value;
+    const email = document.getElementById('email').value;
+    const localizacao = document.getElementById('localizacao').value;
+
+    const resp = await fetch('http://localhost:3000/api/usuario', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome_usuario, nome_completo, email, localizacao })
+    });
+
+    if (resp.ok) {
+        alert('Dados atualizados com sucesso!');
+    } else {
+        alert('Erro ao atualizar dados.');
+    }
+};
+
+document.querySelector('.cancelar').onclick = function () {
+    document.getElementById('nome_usuario').value = '';
+    document.getElementById('nome_completo').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('localizacao').value = '';
+};
+</script>
 
 </html>

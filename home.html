@@ -11,7 +11,7 @@
 
 <body>
 
-    
+
     <div class="navbar-lateral">
         <ul>
             <li><a href="home.html"><span class="emoji">🏠</span><b> INICIO</b></a></li>
@@ -74,58 +74,81 @@
                         <img src="/fotosdeperfil/3.png" alt="Usuário 2">
                         <p><b>HappyChildren</b> <br> happychildren.com.br</p>
                     </div>
-     
-                </div>
 
-                <div class="items">
-                    <h2>Itens Cadastrados Recentemente</h2>
-                    <div class="item-grid">
-                        <div class="item">
-                            <img src="/img/ITENS/eletronico computador.jpg" alt="Item 1">
-                            <button><a href="/itens-venda/computador.html">Saiba Mais</button></a>
+                </div>
+                <div id="lista-itens">
+                </div>
+                    <div class="items">
+                        <h2>Itens Cadastrados Recentemente</h2>
+                        <div class="item-grid">
+                            <div class="item">
+                                <img src="/img/ITENS/eletronico computador.jpg" alt="Item 1">
+                                <button><a href="/itens-venda/computador.html">Saiba Mais</button></a>
+                            </div>
+
+                            <div class="item">
+                                <img src="/img/ITENS/casinha.webp" alt="Item 2">
+                                <button><a href="itens-venda/casinha.html">Saiba Mais</button></a>
+                            </div>
+                            <div class="item">
+                                <img src="/img/ITENS/boneco woody.jpg" alt="Item 2">
+                                <button><a href="itens-venda/woody.html">Saiba Mais</button></a>
+                            </div>
+                            <div class="item">
+                                <img src="/img/ITENS/kit ben 10.jpg" alt="Item 2">
+                                <button><a href="itens-venda/kitben10.html">Saiba Mais</button></a>
+                            </div>
+                            <div class="item">
+                                <img src="/img/ITENS/lançador de dados.webp" alt="Item 2">
+                                <button><a href="itens-venda/lancadordedados.html">Saiba Mais</button></a>
+                            </div>
+                            <div class="item">
+                                <img src="/img/ITENS/maquina de costur.jpg" alt="Item 2">
+                                <button><a href="itens-doacao/maquinadecostura.html">Saiba Mais</button></a>
+                            </div>
+                            <div class="item">
+                                <img src="/img/ITENS/ponei.jpg" alt="Item 2">
+                                <button><a href="/itens-doacao/ponei.html">Saiba Mais</button></a>
+                            </div>
+                            <div class="item">
+                                <img src="/img/ITENS/pitsa carros.jpg" alt="Item 2">
+                                <button><a href="itens-doacao/pistacarros.html">Saiba Mais</button></a>
+                            </div>
+                            <div class="item">
+                                <img src="/img/ITENS/bonecooo.webp" alt="Item 2">
+                                <button><a href="/itens-doacao/boneco.html">Saiba Mais</button></a>
+                            </div>
+                            <div class="item">
+                                <img src="/img/ITENS/parafusos e porcas.jpg" alt="Item 2">
+                                <button><a href="/itens-doacao/parafusoseporcas.html">Saiba Mais</button></a>
+                            </div>
                         </div>
-                        <div class="item">
-                            <img src="/img/ITENS/casinha.webp" alt="Item 2">
-                            <button><a href="itens-venda/casinha.html">Saiba Mais</button></a>
-                        </div>
-                        <div class="item">
-                            <img src="/img/ITENS/boneco woody.jpg" alt="Item 2">
-                            <button><a href="itens-venda/woody.html">Saiba Mais</button></a>
-                        </div>
-                        <div class="item">
-                            <img src="/img/ITENS/kit ben 10.jpg" alt="Item 2">
-                            <button><a href="itens-venda/kitben10.html">Saiba Mais</button></a>
-                        </div>
-                        <div class="item">
-                            <img src="/img/ITENS/lançador de dados.webp" alt="Item 2">
-                            <button><a href="itens-venda/lancadordedados.html">Saiba Mais</button></a>
-                        </div>
-                        <div class="item">
-                            <img src="/img/ITENS/maquina de costur.jpg" alt="Item 2">
-                            <button><a href="itens-doacao/maquinadecostura.html">Saiba Mais</button></a>
-                        </div>
-                        <div class="item">
-                            <img src="/img/ITENS/ponei.jpg" alt="Item 2">
-                            <button><a href="/itens-doacao/ponei.html">Saiba Mais</button></a>
-                        </div>
-                        <div class="item">
-                            <img src="/img/ITENS/pitsa carros.jpg" alt="Item 2">
-                            <button><a href="itens-doacao/pistacarros.html">Saiba Mais</button></a>
-                        </div>
-                        <div class="item">
-                            <img src="/img/ITENS/bonecooo.webp" alt="Item 2">
-                            <button><a href="/itens-doacao/boneco.html">Saiba Mais</button></a>
-                        </div>
-                        <div class="item">
-                            <img src="/img/ITENS/parafusos e porcas.jpg" alt="Item 2">
-                            <button><a href="/itens-doacao/parafusoseporcas.html">Saiba Mais</button></a>
-                        </div>
-               
                     </div>
                 </div>
         </div>
         </main>
     </div>
+    <script>
+        async function carregarItens() {
+            const resp = await fetch('http://localhost:3000/api/itensvenda');
+            const itens = await resp.json();
+            const lista = document.getElementById('lista-itens');
+            lista.innerHTML = '';
+            itens.forEach(item => {
+                lista.innerHTML += `
+        <div class="item">
+            <img src="http://localhost:3000/uploads/${item.foto}" alt="${item.nome}" width="120"><br>
+            <strong>${item.nome}</strong><br>
+            Valor: R$ ${item.valor}<br>
+            Telefone: ${item.telefone}<br>
+            Cidade: ${item.cidade} - ${item.uf}<br>
+            <span class="produto-data">Cadastrado em: ${new Date(item.data_cadastro || item.created_at).toLocaleDateString('pt-BR')}</span>
+        </div>
+        `;
+            });
+        }
+        carregarItens();
+    </script>
     <script src="script.js"></script>
 </body>
 

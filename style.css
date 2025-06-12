@@ -576,3 +576,163 @@ main {
 .item-botao:hover {
   background-color: #0a4000;
 }
+
+#meus-itens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+@media (max-width: 700px) {
+    #meus-itens {
+        flex-direction: column;
+        align-items: center;
+    }
+    .produto-card {
+        width: 90vw;
+        max-width: 320px;
+    }
+}
+
+
+.container-produto-saibamais {
+    display: flex;
+    gap: 40px;
+    background: #f4a536;
+    border-radius: 20px;
+    padding: 32px 32px 32px 32px;
+    margin: 32px 0 0 0;
+    align-items: flex-start;
+    max-width: 900px;
+    min-width: 350px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.image-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px 18px 10px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 340px;
+    max-width: 340px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 300px;
+    max-height: 320px;
+    border-radius: 12px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: #216b13;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 18px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+.badge-venda {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: #da0000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 18px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+
+.seção-detalhes-produto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 320px;
+}
+
+.seção-detalhes-produto h2 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.caixa-descricao {
+    background: #fbe3a2;
+    border-radius: 12px;
+    padding: 18px 18px 10px 18px;
+    font-size: 1.08em;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.caixa-descricao .highlight {
+    color: #d11a1a;
+    font-weight: bold;
+}
+
+.caixa-descricao .Localização,
+.caixa-descricao .frete {
+    color: #d11a1a;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.caixa-footer {
+    margin-top: 18px;
+    background: #e51c23;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.caixa-footer span {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px #b00a0a1a;
+}
+
+@media (max-width: 900px) {
+    .container-produto-saibamais {
+        flex-direction: column;
+        align-items: center;
+        padding: 18px;
+        gap: 18px;
+    }
+    .image-section {
+        min-width: 220px;
+        max-width: 100%;
+    }
+    .seção-detalhes-produto {
+        min-width: 0;
+        width: 100%;
+    }
+}
