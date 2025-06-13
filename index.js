@@ -94,7 +94,8 @@ app.get('/api/itensdoacao', async (req, res) => {
       } catch (err) {   
             console.error('Erro ao buscar itens de doação:', err);
                 res.status(500).json({ error: 'Erro ao buscar itens de doação' });
-                      }            
+                      }
+                    });            
 
 // Rota para adicionar novo item de venda
 app.post('/api/itensvenda', upload.single('foto'), async (req, res) => {
@@ -169,5 +170,3 @@ app.put('/api/usuario', async (req, res) => {
     res.status(500).json({ success: false, error: 'Erro ao atualizar usuário' });
   }
 });
-
-
