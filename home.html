@@ -76,8 +76,7 @@
                     </div>
 
                 </div>
-                <div id="lista-itens">
-                </div>
+                
                     <div class="items">
                         <h2>Itens Cadastrados Recentemente</h2>
                         <div class="item-grid">
@@ -122,6 +121,8 @@
                                 <img src="/img/ITENS/parafusos e porcas.jpg" alt="Item 2">
                                 <button><a href="/itens-doacao/parafusoseporcas.html">Saiba Mais</button></a>
                             </div>
+                            <div id="lista-itens">
+                </div>
                         </div>
                     </div>
                 </div>
@@ -138,11 +139,7 @@
                 lista.innerHTML += `
         <div class="item">
             <img src="http://localhost:3000/uploads/${item.foto}" alt="${item.nome}" width="120"><br>
-            <strong>${item.nome}</strong><br>
-            Valor: R$ ${item.valor}<br>
-            Telefone: ${item.telefone}<br>
-            Cidade: ${item.cidade} - ${item.uf}<br>
-            <span class="produto-data">Cadastrado em: ${new Date(item.data_cadastro || item.created_at).toLocaleDateString('pt-BR')}</span>
+                <button>Saiba Mais</button>
         </div>
         `;
             });

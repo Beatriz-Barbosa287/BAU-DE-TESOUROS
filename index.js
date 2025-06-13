@@ -84,6 +84,17 @@ app.post('/api/itensdoacao', upload.single('foto'), async (req, res) => {
     res.status(500).json({ error: 'Erro ao adicionar item' });
   }
 });
+//rota pra buscar itens de doação
+app.get('/api/itensdoacao', async (req, res) => {
+  try {
+    const connection = await mysql.createConnection(dbConfig).promise();
+    const [rows] = await connection.execute('SELECT * FROM itensdoacao ORDER BY id DESC');
+    await connection.end();
+    res.json(rows);
+      } catch (err) {   
+            console.error('Erro ao buscar itens de doação:', err);
+                res.status(500).json({ error: 'Erro ao buscar itens de doação' });
+                      }            
 
 // Rota para adicionar novo item de venda
 app.post('/api/itensvenda', upload.single('foto'), async (req, res) => {
